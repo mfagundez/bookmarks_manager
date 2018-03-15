@@ -2,11 +2,23 @@ class Bookmarks():
     def __init__(self):
         self.bookmarks = []
     
-    # Adds a bookmark to the bookmarks list
-    def addBookmark(self, bookmark):
-        self.bookmarks.append(bookmark)
+    # Adds a single bookmark to the bookmarks list
+    def addBookmark(self, singleBookmark):
+        self.bookmarks.append(singleBookmark)
 
     # Prints all bookmarks to default stdout
-    def printBookmarks(self):
-        for bookmark in self.bookmarks:
-            print(','.join(bookmark))
+    def printBookmarks(self, separator):
+        for singleBookmark in self.bookmarks:
+            singleBookmark.printf(separator)
+
+class Bookmark():
+    def __init__(self):
+        self.name=""
+        self.url=""
+        self.description=""
+        self.path=""
+        self.status=False
+
+    def printf(self, separator):
+        print(self.name + separator + self.url + separator +
+              self.description + separator + self.path + separator + str(self.status))
